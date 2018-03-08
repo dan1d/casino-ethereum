@@ -266,7 +266,9 @@ class App extends Component {
   }
 
   setupListeners(){
-    let liNodes = this.refs.numbers.querySelector('li');
+    let liNodes = this.refs.numbers.querySelectorAll('li');
+    console.log(this.refs.numbers.querySelectorAll('li'));
+    console.log("Arriba deberia haber log")
     liNodes.forEach(number => {
       number.addEventListener('click', event => {
         this.placeBet(parseInt(event.target.innerHTML), done => {
@@ -290,6 +292,8 @@ class App extends Component {
         from: web3.eth.accounts[0],
         value: web3.toWei(bet, 'ether')
       }, (err, result) => {
+        console.log("Error: ", err)
+        console.log("RESULT: ", result)
         cb()
       })
     }

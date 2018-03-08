@@ -3,6 +3,9 @@ const path = require("path")
 module.exports = {
   watch: true,
   entry: path.join(__dirname, "src/js", "index.js"),
+  devServer: {
+    contentBase: "./dist"
+  },
   output: {
     path: path.join(__dirname, "dist"),
     filename: 'build.js'
